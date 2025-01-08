@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LifePanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // 子オブジェクトのイメージを格納
+    public GameObject[] icons;
 
-    // Update is called once per frame
-    void Update()
+    // プレイヤーのライフに応じてアイコンを更新
+    public void UpdateLife(int life)
     {
-        
+        // アイコンの数だけ繰り返し処理を行う
+        for (int i = 0; i < icons.Length; i++)
+        {
+            // 現在のライフでアイコンを変更
+            if (i < life) icons[i].SetActive(true);
+            else icons[i].SetActive(false);
+        }
     }
 }
