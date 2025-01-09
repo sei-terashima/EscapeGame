@@ -10,7 +10,6 @@ public class BombController : MonoBehaviour
         Destroy(gameObject,2.5f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

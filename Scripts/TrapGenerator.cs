@@ -8,15 +8,20 @@ public class TrapGenerator : MonoBehaviour
     public float interval; //生成間隔
 
 
-    // Start is called before the first frame update
+    // スタートメソッドで間隔を決めたリピートを開始
     void Start()
     {
-        
+        InvokeRepeating("CreateTrap", 0.0f, interval);
     }
 
-    // Update is called once per frame
-    void Update()
+    //CreateTrapメソッド
+    void CreateTrap()
     {
-        
+        //それぞれの位置を設定(x(横:範囲内ランダム),y(高さ:8.0f固定),z(奥行:範囲内ランダム))
+        //安置回避のためWalls( -2.4f~5.5 ,0, -5.3f~6.7f )オブジェクトより少し広めに設定
+        Vector3 randomPosition = new Vector3
+            (Random.Range(-2.5f, 5.6f), 8.0f, Random.Range(-5.4f, 6.8f));
+        //指定したオブジェクトを上記で指定した場所に回転なしで生成
+        Instantiate(TrapPrefab, randomPosition, Quaternion.identity);
     }
 }
