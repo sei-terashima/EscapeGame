@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         // ゲームタイムの更新（カウントダウン）
         gameTime -= Time.deltaTime;
         // 現在のタイムをテキストに表示（切り上げ）
-        timeText.text = Mathf.Ceil(gameTime).ToString();
+        timeText.text = "TIME: " + Mathf.Ceil(gameTime).ToString();
 
         // ゲームタイムが0以下ならゲームクリアに設定
         if (gameTime <= 0)

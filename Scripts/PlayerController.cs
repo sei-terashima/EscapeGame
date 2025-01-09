@@ -58,15 +58,8 @@ public class PlayerController : MonoBehaviour
             // 地面にいる場合
             if (charaCnt.isGrounded)
             {
-                if (Input.GetAxis("Vertical") > 0.0f)
-                {
                     //前後の入力処理
                     moveDirection.z = Input.GetAxis("Vertical") * speedZ;
-                }
-                else
-                {
-                    moveDirection.z = 0;
-                }
 
                 // 左右の入力処理（回転）
                 transform.Rotate(0, Input.GetAxis("Horizontal") * 2, 0);
@@ -90,7 +83,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // スタン状態の判定
-     bool IsStun()
+    bool IsStun()
     {
         return recoverTime > 0.0f || life <= 0.0f;
     }
@@ -104,7 +97,7 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Trap")
         {
             // ライフを減少させ、回復時間をリセット
-            life --;
+            life--;
             recoverTime = stunDuration;
             // トラップのエフェクトを発動し、トラップを消滅させる
             hit.GetComponent<Trap>().CreateEffect();
