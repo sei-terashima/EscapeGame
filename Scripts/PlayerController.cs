@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
             // 移動を停止し、復帰時間を減少
             moveDirection.x = 0.0f;
             moveDirection.y = 0.0f;
+            moveDirection.z = 0.0f;
             recoverTime -= Time.deltaTime;
         }
         else
@@ -76,9 +77,6 @@ public class PlayerController : MonoBehaviour
             //移動
             Vector3 globalDirection = transform.TransformDirection(moveDirection);
             charaCnt.Move(globalDirection * Time.deltaTime);
-
-            // 地面にいる場合、前後の移動を停止
-            if (charaCnt.isGrounded) moveDirection.y = 0.0f;
         }
     }
 
